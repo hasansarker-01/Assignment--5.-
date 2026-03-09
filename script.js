@@ -65,28 +65,36 @@ function displayIssues(list) {
         const border = issue.status === "open" ?
             "border-t-4 border-green-500" :
             "border-t-4 border-purple-500"
-        const priority = issue.priority.toUpperCase()
-        let priorityClass = ""
-        let icon = ""
-        if (priority === "HIGH") {
-            priorityClass = " bg-red-100 text-red-600 border border-red-300 flex items-center justify-end m-auto  py-1 rounded";
+        const priority = issue.priority.toUpperCase();
+        let priorityClass = "";
+        let icon = "";
 
-            icon = '<span class=" flex items-center justify-end m-auto bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/open-Status.png"></span>';
+
+
+
+
+
+
+
+
+
+
+        if (priority === "HIGH") {
+            priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
+            icon = '<span class=" flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/open-Status.png"></span>'
+
         }
 
         if (priority === "MEDIUM") {
-            priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-end m-auto  py-1 rounded";
-            icon = '<span class=" flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/open-Status.png"></span>'
+            priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
+            icon = '<span class="flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/open-Status.png"></span>'
         }
 
         if (priority === "LOW") {
-            priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-end m-auto  py-1 rounded";
-            icon = '<span class="flex items-center justify-end m-auto bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/closed-Status.png"></span>'
+            priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
+            icon = '<span class="flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/closed-Status.png"></span>'
         }
-        if (priority === "ENHANHANCEMENT") {
-            priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-end m-auto  py-1 rounded";
-            icon = '<span class="flex items-center justify-end m-auto bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/closed-Status.png"></span>'
-        }
+
 
         const card = document.createElement("div")
         card.className = `bg-white p-4 rounded-lg shadow hover:shadow-lg cursor-pointer ${border}`
