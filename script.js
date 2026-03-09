@@ -14,7 +14,6 @@ const modalTitle = document.getElementById("modalTitle")
 const modalDesc = document.getElementById("modalDesc")
 const modalPriority = document.getElementById("modalPriority")
 
-
 function showLoader() {
     loading.classList.remove("hidden")
     loading.classList.add("flex")
@@ -36,8 +35,6 @@ function login() {
     }
 }
 
-
-
 async function loadIssues(type) {
     setActiveTab(type)
     showLoader()
@@ -56,8 +53,6 @@ async function loadIssues(type) {
     hideLoader()
 
 }
-
-
 // display issues card
 function displayIssues(list) {
     issuesContainer.innerHTML = ""
@@ -69,35 +64,18 @@ function displayIssues(list) {
         let priorityClass = "";
         let icon = "";
 
-
-
-
-
-
-
-
-
-
-
         if (priority === "HIGH") {
             priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
             icon = '<span class=" flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="assets/topen.png"></span>'
-
         }
-
         if (priority === "MEDIUM") {
             priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
             icon = '<span class="flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="assets/topen.png"></span>'
-
-            Medium - Status
         }
-
         if (priority === "LOW") {
             priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
             icon = '<span class="flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="assets/closed-Status.png"></span>'
         }
-
-
         const card = document.createElement("div")
         card.className = `bg-white p-4 rounded-lg shadow hover:shadow-lg cursor-pointer ${border}`
         card.onclick = () => openModal(issue)
@@ -116,8 +94,6 @@ function displayIssues(list) {
                                 <span class="text-xs text-gray-500"># ${issue.author}</span>
                                 <span class="text-xs text-gray-500">${new Date(issue.createdAt).toLocaleDateString()}</span>
                             </div>
-                         
-                         
                         </div>   
                         `
         issuesContainer.appendChild(card)
@@ -130,19 +106,13 @@ function openModal(issue) {
 
     modal.classList.remove("hidden")
     modal.classList.add("flex")
-
     modalTitle.innerText = issue.title
     modalDesc.innerText = issue.description
-
     const date = new Date(issue.createdAt).toLocaleDateString()
-
     document.getElementById("modalDate").innerText = date
     document.getElementById("modalAssignee").innerText = issue.author
     document.getElementById("modalAssigneeName").innerText = issue.author
-
-
     const status = document.getElementById("modalStatus")
-
     if (issue.status === "open") {
         status.className = "bg-green-500 text-white text-xs px-3 py-1 rounded-full"
         status.innerText = "OPENED"
@@ -151,67 +121,43 @@ function openModal(issue) {
         status.innerText = "CLOSED"
     }
 
-
     const p = issue.priority.toUpperCase()
-
     modalPriority.innerText = p
-
     modalPriority.className = "px-3 py-1 rounded-full text-xs font-semibold text-white"
-
     if (p === "HIGH") {
         modalPriority.classList.add("bg-red-500")
     }
-
     if (p === "MEDIUM") {
         modalPriority.classList.add("bg-yellow-500")
     }
-
     if (p === "LOW") {
         modalPriority.classList.add("bg-gray-500")
     }
-
 }
-
-
 
 function closeModal() {
-
     modal.classList.add("hidden")
     modal.classList.remove("flex")
-
 }
 
-
-
 async function searchIssues() {
-
     const text = searchInput.value.trim()
-
     if (!text) {
         loadIssues("all")
         return
     }
 
     showLoader()
-
     const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${text}`)
-
     const data = await res.json()
-
     displayIssues(data.data)
-
     hideLoader()
-
 }
 
-
-
 function setActiveTab(type) {
-
     document.querySelectorAll(".tab").forEach(btn => {
         btn.classList.remove("active")
     })
-
     if (type === "all") allBtn.classList.add("active")
     if (type === "open") openBtn.classList.add("active")
     if (type === "closed") closedBtn.classList.add("active")
