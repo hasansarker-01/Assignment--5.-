@@ -81,18 +81,18 @@ function displayIssues(list) {
 
         if (priority === "HIGH") {
             priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
-            icon = '<span class=" flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/open-Status.png"></span>'
+            icon = '<span class=" flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="assets/open-Status.png"></span>'
 
         }
 
         if (priority === "MEDIUM") {
             priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
-            icon = '<span class="flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/open-Status.png"></span>'
+            icon = '<span class="flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="assets/open-Status.png"></span>'
         }
 
         if (priority === "LOW") {
             priorityClass = "bg-red-100 text-red-600 border border-red-300 flex items-center justify-center ml-auto  py-1 rounded";
-            icon = '<span class="flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="/assets/closed-Status.png"></span>'
+            icon = '<span class="flex items-center justify-center bg-red-100 text-red-600 rounded-full text-xs"><img src="assets/closed-Status.png"></span>'
         }
 
 
